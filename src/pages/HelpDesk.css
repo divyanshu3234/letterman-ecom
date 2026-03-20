@@ -1,0 +1,165 @@
+.help-desk-page {
+  background: var(--bg-primary);
+  min-height: 100vh;
+  color: var(--text-primary);
+}
+
+.help-hero {
+  padding: 160px 60px 80px;
+  background: var(--bg-secondary);
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.help-hero h1 {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  margin-bottom: 10px;
+}
+
+.help-hero p {
+  font-family: 'Oswald', sans-serif;
+  color: var(--accent);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.help-container {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 0;
+  gap: 60px;
+}
+
+.help-sidebar {
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+}
+
+.help-sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.help-sidebar a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.help-sidebar a:hover { color: var(--accent); }
+
+.help-main {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+.help-section h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+  color: var(--text-primary);
+  border-left: 3px solid var(--accent);
+  padding-left: 20px;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.faq-item h3 {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  color: var(--text-primary);
+}
+
+.faq-item p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.sizing-table-wrap {
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+.sizing-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Inter', sans-serif;
+}
+
+.sizing-table th, .sizing-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.sizing-table th {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.sizing-note {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.contact-card {
+  background: var(--bg-secondary);
+  padding: 60px;
+  border: 1px solid var(--border);
+}
+
+.contact-methods {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.method {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.method-label {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: var(--accent);
+}
+
+.method-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.help-footer {
+  padding: 40px 60px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 1024px) {
+  .help-container { grid-template-columns: 1fr; padding: 40px 20px; }
+  .help-sidebar { display: none; }
+  .faq-grid { grid-template-columns: 1fr; }
+  .contact-methods { grid-template-columns: 1fr; }
+}

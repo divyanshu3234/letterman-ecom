@@ -1,0 +1,225 @@
+/* ════════════════════════════════════
+   RUNWAY PAGE — Fullscreen Overlay
+════════════════════════════════════ */
+.runway-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: opacity 0.5s ease;
+}
+.runway-overlay.exiting {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Spotlight */
+.runway-spotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Top Bar */
+.runway-topbar {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.runway-brand {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  color: #fff;
+}
+.runway-close-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: var(--text-secondary);
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  padding: 8px 18px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+.runway-close-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Stage */
+.runway-stage {
+  flex: 1;
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  padding: 0 40px;
+}
+
+/* Jacket SVG */
+.runway-jacket-wrap {
+  flex-shrink: 0;
+  width: min(280px, 38vw);
+  filter: drop-shadow(0 20px 60px rgba(255,77,0,0.25));
+}
+.runway-jacket-svg {
+  width: 100%;
+  height: auto;
+}
+
+/* Text Block */
+.runway-text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 420px;
+}
+.runway-act-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+.runway-title {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  line-height: 1.02;
+  color: #fff;
+  margin: 0;
+}
+.runway-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+.runway-product-name {
+  font-size: 0.85rem;
+  margin-top: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Scene Progress Dots */
+.runway-progress {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 0;
+}
+.runway-dot {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: var(--text-secondary);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+.runway-dot.done {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.runway-dot.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #121212;
+  transform: scale(1.15);
+}
+.runway-dot-num { pointer-events: none; }
+
+/* Arrow nav */
+.runway-arrows {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 8px 0;
+}
+.runway-arrow-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  width: 44px;
+  height: 44px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: border-color 0.1s, color 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.runway-arrow-btn:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.runway-arrow-btn:disabled { opacity: 0.3; cursor: default; }
+.runway-play-btn {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  width: 52px;
+  height: 52px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.1s, background 0.1s;
+}
+.runway-play-btn.active {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+}
+
+/* Footer */
+.runway-footer {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 20px 40px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .runway-stage {
+    flex-direction: column;
+    gap: 28px;
+    padding: 16px;
+  }
+  .runway-jacket-wrap { width: 55vw; }
+  .runway-topbar { padding: 14px 20px; }
+  .runway-footer { padding: 14px 16px; gap: 10px; }
+  .runway-footer .btn { padding: 10px 14px; font-size: 0.78rem; }
+  .runway-title { font-size: clamp(1.8rem, 8vw, 3rem); }
+}
